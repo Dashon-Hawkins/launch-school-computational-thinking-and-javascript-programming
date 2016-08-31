@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Repeated Characters</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function repeatedCharacters(string) {
+        var lowerCaseString = string.toLowerCase();
+        var lowerCaseCharacters = lowerCaseString.split('');
+        var output = new Object();
+        var outputKeys;
+
+        for (i = 0; i < lowerCaseCharacters.length; i++) {
+          if (!output[lowerCaseCharacters[i]]) {
+            output[lowerCaseCharacters[i]] = 1;
+          } else {
+            output[lowerCaseCharacters[i]] += 1;
+          }
+        }
+
+        outputKeys = Object.keys(output);
+
+        for (var key in output) {
+            if (output[key] === 1) {
+              delete output[key];
+            }
+          }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

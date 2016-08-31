@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Welcome Stranger</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function greetings(nameElements, titleAndOccupation) {
+        var statement;
+        var fullName = nameElements[0];
+        var fullTitle = (titleAndOccupation['title'] + ' ' + titleAndOccupation['occupation']);
+
+        for (i = 1; i < nameElements.length; i++) {
+          fullName += (' ' + nameElements[i]);
+        }
+
+        statement = ('Hello ' + fullName + '!' + ' Nice to have a ' + fullTitle + ' around.');
+
+        console.log(statement);
+      }
+    </script>
+  </body>
+</html> 

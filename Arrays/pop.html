@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Pop</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      /*function pop(arr) {
+        var last = arr[arr.length - 1];
+        var poppedArray = [];
+
+        for (i = 0; i < arr.length - 1; i++) {
+          if (i === arr.length -2) {
+            poppedArray += (arr[i]);
+          } else {
+            poppedArray += (arr[i] + ', ');
+          }
+        }
+        arr = poppedArray;
+
+        return last;
+      }*/
+
+      function pop(array) {
+        var newLength = array.length - 1;
+        var value = array[newLength];
+        array.length = newLength;
+        return value;
+      }
+    </script>
+  </body>
+</html> 

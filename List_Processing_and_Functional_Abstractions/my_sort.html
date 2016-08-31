@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Sort</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function mySort(array) {
+        var output = [];
+        var elementAdded = false;
+
+        array.forEach(function(element) {
+          elementAdded = false;
+
+          for (i = 0; i <= output.length; i++) {
+            if (elementAdded === true) {
+              continue;
+            } else if (elementIsLargestValue(i, output)) {
+              output.push(element);
+              elementAdded = true;
+            } else if (elementIsSmallerThanValueAtIndex(element, i, output)) {
+              output = arrayWithElementAddedAtIndex(element, i, output);
+              elementAdded = true;
+            }
+          }
+        });
+
+        emptyOutArray(array);
+
+        fillArray(array, output);
+
+        return array;
+      }
+
+      function insertElementAtProperIndex() {
+        
+      }
+
+      function elementIsSmallerThanValueAtIndex(element, index, array) {
+        return element <= array[index];
+      }
+
+      function elementIsLargestValue(index, array) {
+        return index === array.length;
+      }
+
+      function arrayWithElementAddedAtIndex(element, index, arr) {
+        return arr.slice(0, index).concat([element].concat(arr.slice(index)));
+      }
+
+      function emptyOutArray(arr) {
+        while (arr.length > 0) {
+          arr.shift();
+        }
+      }
+
+      function fillArray(arr, source) {
+        source.forEach(function(element) {
+          arr.push(element);
+        });
+      }
+
+      var scores = [88, 50, 60, 99, 12, 23];
+    </script>
+  </body>
+</html> 

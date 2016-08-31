@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Iteration: myForEach</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function myForEach(array, func) {
+        for (i = 0; i < array.length; i++) {
+          func(array[i]);
+        }
+      }
+
+      var min = Infinity;
+      var getMin = function(value) {
+        min = value <= min ? value : min;
+      };
+    </script>
+  </body>
+</html> 

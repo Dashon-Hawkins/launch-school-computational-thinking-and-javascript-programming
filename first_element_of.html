@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Array functions</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function firstElementOf(arr) {
+        return arr.shift();
+      }
+
+      function lastElementOf(arr) {
+        return arr[arr.length - 1];
+      }
+
+      function firstNOf(arr, length) {
+        var output = [];
+
+        for (i = 0; i < length; i++) {
+          output[i] = arr[i];
+        }
+
+        return output;
+      }
+
+      function lastNOf(arr, length) {
+        var output = [];
+        var start = (arr.length - length - 1);
+
+        for (i = start; i < arr.length; i++) {
+          output[i - start - 1] = arr[i];
+        }
+
+        return output;
+      }
+
+      function joinArray(arr, separator) {
+        var output = arr[0];
+
+        if (separator === undefined) {
+          separator = '';
+        }
+
+        for (i = 1; i < arr.length; i++) {
+          output += (separator + arr[i]);
+        }
+
+        return output;
+      }
+
+      function sortDescending(arr) {
+        debugger;
+        return (function(a, b) { return b - a; });
+      }
+
+      function uniqueElements(arr) {
+        var output = [];
+        var addValue;
+
+        for (i = 0; i < arr.length; i++) {
+          addValue = true;
+
+          for (j = 0; j < output.length; j++) {
+            if (arr[i] === output[j]) {
+              addValue = false;
+            }
+          }
+          if (addValue) {
+            output.push(arr[i]);
+          }
+        }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

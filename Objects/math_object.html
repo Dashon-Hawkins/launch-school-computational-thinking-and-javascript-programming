@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Working with the Math Object</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function radiansToDegrees(radians) {
+        return (radians * 180 / Math.PI);
+      }
+
+      function randomWithinRange(minimum, maximum) {
+        var range = maximum - minimum;
+
+        return (minimum + Math.round((range * Math.random())));
+      }
+    </script>
+  </body>
+</html> 

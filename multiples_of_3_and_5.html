@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      var threeByFive = function(number) {
+        var output;
+        for (i = 1; i <= number; i++) {
+          if ((i % 3 === 0) && (i % 5 === 0)) {
+            console.log(String(i) + "!");
+          } else if (i % 5 === 0) {
+            console.log(i);
+          } else if (i % 3 === 0) {
+            console.log(i);
+          }
+        }
+      }
+
+      threeByFive(100);
+
+    </script>
+  </body>
+</html> 

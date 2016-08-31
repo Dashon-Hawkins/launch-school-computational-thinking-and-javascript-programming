@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Rot13 Cipher</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      const LOWER_CASE_ALPHABET_RANGE_START_ASCII = 97;
+      const LOWER_CASE_ALPHABET_RANGE_END_ASCII = 122;
+      const UPPER_CASE_ALPHABET_RANGE_START_ASCII = 65;
+      const UPPER_CASE_ALPHABET_RANGE_END_ASCII = 90;
+      const SINGLE_ROTATION = 13;
+      const DOUBLE_ROTATION = 26;
+
+      function rot13(string) {
+        output = '';
+        var asciiNumeric;
+
+        for (i = 0; i < string.length; i++) {
+          asciiNumeric = string[i].charCodeAt(0);
+
+          output += String.fromCharCode(newAsciiNumericValue(asciiNumeric));
+        }
+
+        return output;
+      }
+
+      function newAsciiNumericValue(currentAscii) {
+        if ((currentAscii >= UPPER_CASE_ALPHABET_RANGE_START_ASCII) && (currentAscii <= UPPER_CASE_ALPHABET_RANGE_END_ASCII)) {
+          currentAscii += SINGLE_ROTATION;
+          if (currentAscii > UPPER_CASE_ALPHABET_RANGE_END_ASCII) {
+            currentAscii -= DOUBLE_ROTATION;
+          }
+        }
+        if ((currentAscii >= LOWER_CASE_ALPHABET_RANGE_START_ASCII) && (currentAscii <= LOWER_CASE_ALPHABET_RANGE_END_ASCII)) {
+          currentAscii += SINGLE_ROTATION;
+          if (currentAscii > LOWER_CASE_ALPHABET_RANGE_END_ASCII) {
+            currentAscii -= DOUBLE_ROTATION;
+          }
+        }
+
+        return currentAscii;
+      }
+    </script>
+  </body>
+</html> 

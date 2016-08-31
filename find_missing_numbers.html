@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Find Missing Numbers</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function missing(sortedArray) {
+        var output = [];
+
+        for (i = sortedArray[0] + 1; i < sortedArray[sortedArray.length - 1]; i++) {
+          if (sortedArray.indexOf(i) === -1) {
+            output.push(i);
+          }
+        }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

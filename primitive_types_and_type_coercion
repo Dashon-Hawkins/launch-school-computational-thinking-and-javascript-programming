@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      var counter = 0;
+      var limit = 10;
+
+      while (true) {
+        counter += 2;
+        if (counter > limit) {
+          break;
+        }
+
+        console.log(counter);
+      }
+    </script>
+  </body>
+</html> 

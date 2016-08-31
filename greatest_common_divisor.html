@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      var gcd = function(number1, number2) {
+        var bigNumber;
+        var smallNumber;
+        var greatestDenominator = 1;
+
+        if (number1 >= number2) {
+          bigNumber = number1;
+          smallNumber = number2;
+        } else {
+          bigNumber = number2;
+          smallNumber = number1;
+        }
+
+        for (i = smallNumber; i > 0; i--) {
+          if ((smallNumber % i === 0) && (bigNumber % i === 0)) {
+            greatestDenominator = i;
+            break;
+          }
+        }
+
+        return greatestDenominator;
+      }
+
+    </script>
+  </body>
+</html> 

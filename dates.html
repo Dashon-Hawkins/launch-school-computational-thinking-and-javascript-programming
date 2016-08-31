@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Working with Dates</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      var date = new Date();
+      var tomorrow = new Date(date);
+
+      function dateSuffix(date) {
+        if (date.getDate() % 10 === 1) {
+          return 'st';
+        } else if (date.getDate() % 10 === 2) {
+          return 'nd';
+        } else if (date.getDate() % 10 === 3) {
+          return 'rd';
+        } else {
+          return 'th';
+        }
+      }
+
+      function formattedMonth(date) {
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        return months[date.getMonth()];
+      }
+
+      function formattedDay(date) {
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        return days[date.getDay()];
+
+      }
+
+      function formattedDate(date) {
+        return ('Today is ' + formattedDay(date) + ' the ' + date.getDate() + dateSuffix(date) + ' of ' + formattedMonth(date));
+      }
+
+      function formatTime(date) {
+        var hours = String(date.getHours());
+        var minutes = String(date.getMinutes());
+
+        if (hours.length < 2) {
+          hours = '0' + hours;
+        }
+
+        return (hours + ':' + minutes);
+      }
+    </script>
+  </body>
+</html> 

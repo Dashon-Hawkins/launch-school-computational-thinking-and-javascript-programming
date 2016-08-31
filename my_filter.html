@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Selection: Filter</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function myFilter(array, func) {
+        var output = [];
+
+        array.forEach(function(element) {
+          if (func(element)) {
+            output.push(element);
+          }
+        });
+
+        return output;
+      }
+
+      var isPythagoreanTriple = function(triple) {
+        return Math.pow(triple.a, 2) + Math.pow(triple.b, 2) === Math.pow(triple.c, 2);
+      };
+
+      function multiplesOfThreeOrFive(values) {
+        return myFilter(values, isMultipleOfThreeOrFive);
+      }
+
+      var isMultipleOfThreeOrFive = function(value) {
+        return value % 5 === 0 || value % 3 === 0;
+      };
+    </script>
+  </body>
+</html> 

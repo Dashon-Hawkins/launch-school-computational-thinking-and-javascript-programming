@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Arrays Equal</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function arraysEqual(firstArray, secondArray) {
+        if (firstArray.length !== secondArray.length) {
+          return false;
+        }
+
+        for (i = 0; i < firstArray.length; i++) {
+          if (firstArray[i] !== secondArray[i]) {
+            return false;
+          }
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html> 

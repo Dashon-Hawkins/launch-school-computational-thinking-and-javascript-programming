@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Index of Substring</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function indexOf(firstString, secondString) {
+        var herald = secondString[0];
+        var offset;
+        var synced;
+
+        for (i = 0; i < firstString.length; i++) {
+          if (firstString[i] === herald) {
+            offset = i;
+            break;
+          }
+        }
+
+        if (!!offset) {
+          synced = true;
+        }
+
+
+        for (j = 0; j < secondString.length; j++) {
+          if (firstString[j + offset] != secondString[j]) {
+            synced = false;
+          }
+        }
+
+
+        if (synced) {
+          return offset;
+        } else {
+          return -1;
+        }
+      }
+
+      function lastIndexOf(firstString, secondString) {
+        var herald = secondString[0];
+        var offset;
+        var synced;
+
+        for (i = -1; -i <= firstString.length; i--) {
+          if (firstString[i + firstString.length] === herald) {
+            offset = (i + firstString.length);
+            break;
+          }
+        }
+
+        if (!!offset) {
+          synced = true;
+        }
+
+
+        for (j = 0; j < secondString.length; j++) {
+          if (firstString[j + offset] != secondString[j]) {
+            synced = false;
+          }
+        }
+
+
+        if (synced) {
+          return offset;
+        } else {
+          return -1;
+        }
+      }
+
+    </script>
+  </body>
+</html> 

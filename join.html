@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Join</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function join(arr, separator) {
+        var output = '';
+
+        for (i = 0; i < arr.length - 1; i++) {
+          output += (arr[i].toString() + separator);
+        }
+        output += arr[arr.length - 1].toString();
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

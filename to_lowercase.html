@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Converting String to Lowercase</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function toLowerCase(string) {
+        var output = '';
+
+        if ((Number(string)) === (Number(string))) {
+          return string;
+        }
+
+        for (i = 0; i < string.length; i++) {
+          var asciiNumeric = string[i].charCodeAt(0);
+          var lowerCaseAlready;
+
+          for (j = 97; j <= 122; j++) {
+            if (asciiNumeric === j) {
+              lowerCaseAlready = true;
+            }
+          }
+
+          if (lowerCaseAlready) {
+            output+= String.fromCharCode(asciiNumeric);
+            continue;
+          }
+
+          asciiNumeric += 32;
+          output += String.fromCharCode(asciiNumeric);
+        }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

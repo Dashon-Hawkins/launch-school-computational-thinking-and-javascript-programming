@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Pattern Generation</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function generatePattern(number) {
+        var output;
+
+        for (i = 1; i <= number; i++) {
+          output = '';
+          for (j = 1; j <= i; j++) {
+            output += String(j);
+          }
+
+          while (output.length < number) {
+            output += '*';
+          }
+
+          console.log(output);
+        }
+      }
+    </script>
+  </body>
+</html> 

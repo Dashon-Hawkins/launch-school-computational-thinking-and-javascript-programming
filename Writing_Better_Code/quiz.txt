@@ -1,0 +1,76 @@
+Computational Thinking and JavaScript Programming - Writing Better Code - Quiz: What We've Learned So Far
+
+1.  "string" will be logged to the screen.  Because the line (typeof speak) does not include the ending paretheses that would indicate a function call, JavaScript understands we wish to log the type of the speak variable (which is a string).
+
+2.  illegal:
+    - @moon
+    - battle-station
+    - phone.home
+    - dust&crater
+
+    legal but not idiomatic:
+    - sunSHINE
+    - hover_craft
+    - Inter_Galactic
+
+    idiomatic:
+    - sun
+    - ring1
+    - spaceShip
+    - $pace
+
+3.  The variable 'a' has been instantiated, but 'b' has not.  The code will throw a ReferenceError.
+
+4.  The variable 'b' may or may not have been instantiated somewhere in the code above.  It is impossible to say whether ths snippet will run error-free without examining all of the code.
+
+5.  The value of b is 1.  JavaScript passes variables by value, so the line 'var b = a;' assigns the value of a to b.  The value of b remains the same when a is incremented in the next line.
+
+6.  The code contains seven variables (two of which are properties of an object), eight primitive values (three numbers, three strings, and two booleans), and two objects (one of which is an array).
+
+7.  The code will print out the function definition.  Without the parentheses that indicate I would like to execute the function, JavaScript concludes I want to see the definition of the function.
+
+8.  When a function parameter is left empty on invocation, the argument is undefined.  JavaScript cannot find the length of an argument that is undefined, so an error will be thrown.
+
+9.  The run function, as defined in both questions, requires an argument to execute.  Line seven in this question is able to run without throwing an error because the parameter is not left empty, as in the previous question.  It is a coincidence that var a from line one and the argument in line four share the same name.  Within the function, the argument shadows the local variable from the outer scope.  The variables are different and have different scopes, despite having the same value when the run function is executed at line seven.
+
+10.  There are four scopes in this example- one global scope, and an inner scope created by each of the three functions.
+
+11.  The variable a, instantiated in line one, is defined in line 4.  Line eight will log 1 to the console.
+
+12.  The code will print out undefined.  The function go does not output anything to the screen (but returns undefined).  It does, however, create a variable called a and assign it a value of 1.  This new inner scope variable shadows the outer scope variable, so the outer scope variable is never defined.  Thus, console.log(a) in line eight prints undefined to the screen.
+
+13.  The code will print out undefined.  In JavaScript, primitive values are passed to functions by value.  Passing a as an argument to the go function creates a new variable a for the function's inner scope that is given the same value as the outer scope variable a.  The value of the inner scope variable a is updated to 2, but once the function terminates that variable is no longer accessible.  Line eight logs the value of the outer scope variable a, which has been undefined since it was instantiated in line one, to the console.
+
+14.  The last line prints 'hello' because that is the only value that is ever assigned to the variable greeting.  This example demonstrates that the return keyword does not inherently reassign the value of a variable.
+
+15.  While primitive values are passed to functions by value, objects (such as Arrays) are passed by reference.  A reference to the numbers array is passed into the append function's array parameter, allowing the number 2 to be appended to the numbers array inside the function.  This example demonstrates that arrays are passed to functions by reference, and that the built-in array function push mutates the caller.  The appended value is now a permanent part of the array numbers, even after the function terminates.
+
+16.  When the value of array stored in the arguments object is explicitly reassigned in line two, the reference to the original array object that had been passed to the function is lost.  The function has created a new object called array in the local scope, and assigned it a value of [1].  Objects in JavaScript do not have unique identifiers and (according to many answers on StackOverflow) it is extremely difficult to find a JavaScript object's place in memory, so the best way to demonstrate that a new object has been created is to test the variables array and numbers for equality.
+
+When I insert the debugger statement just before the assignment in line two occurs, I can verify immediately that numbers and array each reference an identical array: [1].  Further, the expression (array == numbers) returns true.  However, once JavaScript evaluates line two, the expression (array == numbers) returns false.  The arrays contain identical values, but are no longer one and the same.
+
+17.  var car = {
+  make = 'Toyota';
+  model = 'Prius C';
+  year = 2016
+  isRunning = true;
+}
+
+18.  In line ten, obj[active] returns undefined, which is falsy.  The else branch is evaluated, and false is returned.  In line eleven, obj['enabled'] returns false (because the value assigned to the property 'enabled' is the boolean false).  Once again the else branch is evaluated, and false is returned.
+
+To achieve the desired behavior, replace (object[property]) in the function definition with (Object.keys(obj).indexOf(property) !== -1) or, more simply, (obj.hasOwnProperty(property)).
+
+19.  When an unassigned variable is used in a JavaScript statement (as in the first line), an error is thrown.  However, an unassigned property of an object is undefined.  In the fourth line, implicit type coercion of the unassigned property (which has a value of undefined) changes it to NaN.  A number added to NaN evaluates to NaN.
+
+20.  Because an array is an object in JavaScript, when an array is passed as an argument to typeof, 'object' is returned.  In order to know whether the value stored in variable thing is an array or not, use Array.isArray(thing).  Thus, update the function definition as follows:
+
+function isEmpty(value) {
+  var type = typeof value;
+  if (type === 'string') {
+    return value.length === 0;
+  } else if (Array.isArray(value)) {
+    return value.length === 0;
+  } else if (type === 'object') {
+    return Object.keys(value).length === 0;
+  }
+}

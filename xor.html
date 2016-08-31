@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function isXor(value_1, value_2) {
+        if ((Boolean(value_1) || Boolean(value_2)) && (Boolean(value_1) != Boolean(value_2))) {
+          return true;
+        }
+        return false;
+      }
+
+      isXor(false, true);     // true
+      isXor(true, false);     // true
+      isXor(false, false);    // false
+      isXor(true, true);      // false
+
+
+      isXor(false, 3);        // true
+      isXor('a', undefined);  // true
+      isXor(null, '');        // false
+      isXor('2', 23);         // false
+    </script>
+  </body>
+</html> 

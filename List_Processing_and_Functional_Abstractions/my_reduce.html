@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Reducing/Folding</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function myReduce(array, func, initialValue) {
+        var collection = [];
+        var accumulator;
+
+        array.forEach(function(element) {
+          collection.push(element);
+        }); // This step prevents the original array from being mutated by the next statement.
+
+        if (initialValue !== undefined) {
+          collection.unshift(initialValue);
+        }
+
+        for (i = 0; i < collection.length; i++) {
+          accumulator = func(accumulator, collection[i]);
+        }
+
+        return accumulator;
+      }
+
+      var smallest = function(result, value) {
+        return result <= value ? result : value;
+      };
+    </script>
+  </body>
+</html> 

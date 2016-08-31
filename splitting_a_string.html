@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Splitting a String</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function splitString(string, delimiter) {
+        var subStrings = [];
+        var subStringPieces;
+        var splitIndex;
+        var remainder = string;
+        var remainderPieces;
+
+        if (delimiter === undefined) {
+          console.log(string);
+          return;
+        }
+
+        while (indexOf(remainder, delimiter) != -1) {
+          subStringPieces = '';
+          remainderPieces = '';
+          splitIndex = indexOf(remainder, delimiter);
+
+          for (i = 0; i < splitIndex; i++) {
+            subStringPieces += remainder[i];
+          }
+          subStrings[subStrings.length] = subStringPieces;
+
+          for (j = (splitIndex + delimiter.length); j < remainder.length; j++) {
+            remainderPieces += remainder[j];
+          }
+          remainder = remainderPieces;
+        }
+        subStrings[subStrings.length] = remainder;
+
+        if (delimiter === '') {
+          for (z = 0; z < remainder.length; z++) {
+            console.log(remainder[z]);
+          }
+          return;
+        }
+
+        for (k = 0; k < subStrings.length; k++) {
+          if (subStrings[k] != '') {
+            console.log(subStrings[k]);
+          }
+        }
+      }
+
+      function indexOf(firstString, secondString) {
+        var herald = secondString[0];
+        var offset;
+        var synced;
+
+        for (i = 0; i < firstString.length; i++) {
+          if (firstString[i] === herald) {
+            offset = i;
+            break;
+          }
+        }
+
+        if ((!!offset) || (offset === 0)) {
+          synced = true;
+        }
+
+
+        for (j = 0; j < secondString.length; j++) {
+          if (firstString[j + offset] != secondString[j]) {
+            synced = false;
+          }
+        }
+
+
+        if (synced) {
+          return offset;
+        } else {
+          return -1;
+        }
+      }
+    </script>
+  </body>
+</html> 

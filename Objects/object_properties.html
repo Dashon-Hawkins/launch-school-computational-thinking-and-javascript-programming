@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Working with Object Properties</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function objectHasProperty(object, string) {
+        return (object[string] !== undefined);
+      }
+
+      function incrementProperty(object, propertyName) {
+        if (object[propertyName]) {
+          object[propertyName] += 1;
+        } else {
+          object[propertyName] = 1;
+        }
+
+        return object[propertyName];
+      }
+
+      function copyProperties(firstObject, secondObject) {
+        var count = 0;
+        var length = Object.keys(firstObject).length;
+
+        for (i = 0; i < length; i++) {
+          secondObject[Object.keys(firstObject)[i]] = firstObject[Object.keys(firstObject)[i]];
+          count += 1;
+        }
+
+        return count;
+      }
+
+      function wordCount(string) {
+        var counter = {};
+        var arr = string.split(' ');
+
+        for (i = 0; i < arr.length; i++) {
+          if (counter[arr[i]] === undefined) {
+            counter[arr[i]] = 1;
+          } else {
+            counter[arr[i]] += 1;
+          }
+        }
+
+        return counter;
+      }
+    </script>
+  </body>
+</html> 

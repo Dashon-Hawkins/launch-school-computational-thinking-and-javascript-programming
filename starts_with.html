@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>String Starts With</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function startsWith(string, searchString) {
+        if (searchString === '') {
+          return true;
+        }
+
+        if (searchString.length > string.length) {
+          return false;
+        }
+
+        return (indexOf(searchString, string));
+      }
+
+      function indexOf(firstString, secondString) {
+        var herald = secondString[0];
+        var offset;
+
+        for (i = 0; i < firstString.length; i++) {
+          if (firstString[i] === herald) {
+            offset = i;
+            break;
+          }
+        }
+
+        return (offset === 0);
+      }
+    </script>
+  </body>
+</html> 

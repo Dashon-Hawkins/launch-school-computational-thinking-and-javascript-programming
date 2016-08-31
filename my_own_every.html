@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Interrogation: Some and Every</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function myOwnEvery(array, func) {
+        var output = [];
+
+        array.forEach(function(element) {
+          if (func(element)) {
+            output.push(element);
+          }
+        });
+
+        return (output.sort().join(',') === array.sort().join(','));
+      }
+
+      var isAString = function(value) {
+        return typeof value === 'string';
+      };
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Repeating Strings</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function repeat(string, times) {
+        var output = '';
+
+        if ((typeof(times) != "number") || (times < 0)) {
+          return undefined;
+        }
+
+        for (i = 1; i <= times; i++) {
+          output += string;
+        }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function studentGrade() {
+        var grades = [];
+        var sum = 0;
+        var average;
+
+        grades.push(Number(prompt("Enter score 1:")));
+        grades.push(Number(prompt("Enter score 2:")));
+        grades.push(Number(prompt("Enter score 3:")));
+
+        grades.map(function(grade) {
+          sum += grade;
+        })
+
+        average = sum / 3;
+
+        if (average >= 90) {
+          console.log('Based on the average of your 3 scores your letter grade is "A".');
+        } else if (70 <= average && average < 90) {
+          console.log('Based on the average of your 3 scores your letter grade is "B".');
+        } else if (50 <= average && average < 70) {
+          console.log('Based on the average of your 3 scores your letter grade is "C".');
+        } else {
+          console.log('Based on the average of your 3 scores your letter grade is "F".');
+        }
+      }
+
+      studentGrade();
+    </script>
+  </body>
+</html> 

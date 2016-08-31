@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Array to String</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function arrayToString(arr) {
+        var output = '';
+
+        for (i = 0; i < arr.length; i++) {
+          if (i === arr.length - 1) {
+            output += (arr[i] + '.');
+          } else {
+            output += (arr[i] + ', ');
+          }
+        }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 

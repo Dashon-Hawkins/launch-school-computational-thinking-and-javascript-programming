@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Substring Part II</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function substring(string, start, end) {
+        output = '';
+
+        if (end === undefined) {
+          end = string.length;
+        }
+
+        if (end < start) {
+          var temp = start;
+          start = end;
+          end = temp;
+        }
+
+        if ((start < 0) || (Number(start) !== Number(start))) {
+          start = 0;
+        }
+        if ((end < 0) || (Number(end) !== Number(end))) {
+          end = 0;
+        }
+        if (end > string.length) {
+          end = string.length;
+        }
+
+        for (i = start; i < end; i++) {
+          output += string[i];
+        }
+
+        return output;
+      }
+    </script>
+  </body>
+</html> 
