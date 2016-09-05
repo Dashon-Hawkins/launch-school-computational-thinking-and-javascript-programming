@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Anagrams</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function anagram(word, list) {
+        var output
+        function sameLetters(element) {
+          return areAnagrams(element, word);
+        }
+
+        output = list.filter(sameLetters);
+
+        return output;
+      }
+
+      function areAnagrams(element, word) {
+        return (splitSortAndJoin(element) === splitSortAndJoin(word));
+      }
+
+      function splitSortAndJoin(word) {
+        return word.split('').sort().join();
+      }
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Octal</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function octalToDecimal(number) {
+        var base = 8;
+
+        var digits = number.split('').reverse().map(function(value, index, array) {
+          return (value * Math.pow(base, index));
+        });
+
+        return digits.reduce(function(previousValue, currentValue) {
+          return previousValue + currentValue;
+        });
+      }
+    </script>
+  </body>
+</html> 

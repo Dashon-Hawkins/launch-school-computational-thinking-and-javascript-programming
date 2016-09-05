@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Acronym</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function acronym(string) {
+        return joinLetters(capitalizeFirstLetters(splitIntoWords(string)));
+      }
+
+      function splitIntoWords(string) {
+        return string.split(/[ ]|\-|:/);
+      }
+
+      function capitalizeFirstLetters(arr) {
+        var output = [];
+
+        arr.forEach(function(word) {
+          if (word) {
+            output.push(word[0].toUpperCase());
+          }
+        });
+
+        return output;
+      }
+
+      function joinLetters(arr) {
+        return arr.join('');
+      }
+    </script>
+  </body>
+</html> 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Total Square Area</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function totalArea(array2D) {
+        var output;
+        var lengthByWidth = [];
+
+        var areas = array2D.map(function(element) {
+          var area = element[0] * element[1];
+
+          lengthByWidth.push(area)
+        });
+
+        output = lengthByWidth.reduce(function(previousValue, currentValue) {
+          return previousValue + currentValue;
+        });
+
+        return output;
+      }
+
+      function totalSquareArea(array2D) {
+        return totalArea(isSquare(array2D));
+      }
+
+      function isSquare(lengthByWidth) {
+        return lengthByWidth.filter(function(element) {
+          return (element[0] === element[1]);
+        });
+      }
+
+      var rectangles = [[3, 4], [6, 6], [1, 8], [9, 9], [2, 2]];
+    </script>
+  </body>
+</html> 

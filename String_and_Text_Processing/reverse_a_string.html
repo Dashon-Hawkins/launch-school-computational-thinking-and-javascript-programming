@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Reverse a String</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function reverse(string) {
+        return joinCharacters(reverseCharacters(splitString(string)));
+      }
+
+      function splitString(string) {
+        return string.split("");
+      }
+
+      function reverseCharacters(arr) {
+        return arr.reverse();
+      }
+
+      function joinCharacters(arr) {
+        return arr.join('');
+      }
+    </script>
+  </body>
+</html> 

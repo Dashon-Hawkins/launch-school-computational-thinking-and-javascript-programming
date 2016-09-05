@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Formatting Bands</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function processBands(bands) {
+        return bands.map(function(band) {
+          var capitalizedName = capitalizePhrase(band.name);
+          var newBandName = removeDotsInString(capitalizedName);
+
+          return {
+            name: newBandName,
+            country: 'Canada',
+            active: band.active,
+          };
+        });
+      }
+
+      function capitalizePhrase(string) {
+        var stringWords;
+        var stringWordsToUpperCase;
+
+        stringWords = string.split(' ');
+        stringWordsToUpperCase = stringWords.map(function(word) {
+          return word[0].toUpperCase() + word.slice(1);
+        });
+
+        return stringWordsToUpperCase.join(' ');
+      }
+
+      function removeDotsInString(string) {
+        var stringWords;
+
+        stringWords = string.split('.');
+        return stringWords.join('');
+      }
+
+      var bands = [
+        { name: 'sunset rubdown', country: 'UK', active: false },
+        { name: 'women', country: 'Germany', active: false },
+        { name: 'a silver mt. zion', country: 'Spain', active: true },
+      ];
+    </script>
+  </body>
+</html> 

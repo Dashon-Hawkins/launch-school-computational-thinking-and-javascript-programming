@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Class Records Summary</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+    <script>
+      function generateClassRecordSummary(records) {
+        var exercisesScore;
+        var examsScore;
+        var finalScore;
+        var finalGrade;
+        var classRecordSummary = {
+                                    studentGrades: [],
+                                    exams: [
+                                      { average: calculateIndividualExamAverage(0, studentScores), minimum: calculateExamLowScore(0, studentScores), maximum: calculateExamHighScore(0, studentScores) },
+                                      { average: calculateIndividualExamAverage(1, studentScores), minimum: calculateExamLowScore(1, studentScores), maximum: calculateExamHighScore(1, studentScores) },
+                                      { average: calculateIndividualExamAverage(2, studentScores), minimum: calculateExamLowScore(2, studentScores), maximum: calculateExamHighScore(2, studentScores) },
+                                      { average: calculateIndividualExamAverage(3, studentScores), minimum: calculateExamLowScore(3, studentScores), maximum: calculateExamHighScore(3, studentScores) },
+                                    ],
+                                  }
+
+        Object.keys(records).map(function(student, index, array) {
+          examsScore = calculateAverageExamScore(student, records); // reduce 
+          exercisesScore = calculateTotalExercisesScore(student, records); // reduce
+          finalScore = calculateFinalScore(examsScore, exercisesScore); // map
+          finalGrade = calculateGrade(finalScore);
+          classRecordSummary.studentGrades.push(formatScoreAndGrade(finalScore, finalGrade));
+        });
+
+        return classRecordSummary;
+      }
+
+      function formatScoreAndGrade(finalScore, finalGrade) {
+        return (finalScore + ' (' + finalGrade + ')');
+      }
+
+      function calculateIndividualExamAverage(examIndex, records) {
+        var examPoints = 0;
+        var totalStudents = Object.keys(records).length;
+
+        Object.keys(records).map(function(student, index, array) {
+          examPoints += records[student].scores.exams[examIndex];
+        });
+
+        return (examPoints / totalStudents).toFixed([1]);
+      }
+
+      function calculateExamLowScore(examIndex, records) {
+        var examScores = [];
+
+        Object.keys(records).map(function(student, index, array) {
+          examScores.push(records[student].scores.exams[examIndex]);
+        });
+
+        return mySort(examScores)[0];
+      }
+
+      function calculateExamHighScore(examIndex, records) {
+        var examScores = [];
+
+        Object.keys(records).map(function(student, index, array) {
+          examScores.push(records[student].scores.exams[examIndex]);
+        });
+
+        return mySort(examScores)[examScores.length - 1];
+      }
+
+      function calculateAverageExamScore(student, records) {
+        var examRecords = records[student].scores.exams;
+        var numberOfExams = examRecords.length;
+
+        var totalExamPoints = examRecords.reduce(function(totalPoints, points) {
+          return totalPoints + points;
+        });
+
+        return (totalExamPoints / numberOfExams);
+      }
+
+      function calculateTotalExercisesScore(student, records) {
+        var exerciseRecord = records[student].scores.exercises;
+
+        return exerciseRecord.reduce(function(totalPoints, points) {
+          return totalPoints + points;
+        });
+      }
+
+      function calculateFinalScore(examsScore, exercisesScore) {
+        return Math.round((examsScore * .65) + (exercisesScore * .35));
+      }
+
+      function calculateGrade(finalScore) {
+        if (finalScore >= 93) {
+          return 'A';
+        } else if (finalScore > 85) {
+          return 'B';
+        } else if (finalScore > 77) {
+          return 'C';
+        } else if (finalScore > 69) {
+          return 'D';
+        } else if (finalScore > 60) {
+          return 'E';
+        } else {
+          return 'F';
+        }
+      }
+
+      var studentScores = {
+        student1: {
+          id: 123456789,
+          scores: {
+            exams: [90, 95, 100, 80],
+            exercises: [20, 15, 10, 19, 15],
+          },
+        },
+        student2: {
+          id: 123456799,
+          scores: {
+            exams: [50, 70, 90, 100],
+            exercises: [0, 15, 20, 15, 15],
+          },
+        },
+        student3: {
+          id: 123457789,
+          scores: {
+            exams: [88, 87, 88, 89],
+            exercises: [10, 20, 10, 19, 18],
+          },
+        },
+        student4: {
+          id: 112233445,
+          scores: {
+            exams: [100, 100, 100, 100],
+            exercises: [10, 15, 10, 10, 15],
+          },
+        },
+        student5: {
+          id: 112233446,
+          scores: {
+            exams: [50, 80, 60, 90],
+            exercises: [10, 0, 10, 10, 0],
+          },
+        },
+      };
+
+      function mySort(array) {
+        var output = [];
+        var elementAdded = false;
+
+        array.forEach(function(element) {
+          elementAdded = false;
+
+          for (i = 0; i <= output.length; i++) {
+            if (elementAdded === true) {
+              continue;
+            } else if (elementIsLargestValue(i, output)) {
+              output.push(element);
+              elementAdded = true;
+            } else if (elementIsSmallerThanValueAtIndex(element, i, output)) {
+              output = arrayWithElementAddedAtIndex(element, i, output);
+              elementAdded = true;
+            }
+          }
+        });
+
+        emptyOutArray(array);
+
+        fillArray(array, output);
+
+        return array;
+      }
+
+      function insertElementAtProperIndex() {
+        
+      }
+
+      function elementIsSmallerThanValueAtIndex(element, index, array) {
+        return element <= array[index];
+      }
+
+      function elementIsLargestValue(index, array) {
+        return index === array.length;
+      }
+
+      function arrayWithElementAddedAtIndex(element, index, arr) {
+        return arr.slice(0, index).concat([element].concat(arr.slice(index)));
+      }
+
+      function emptyOutArray(arr) {
+        while (arr.length > 0) {
+          arr.shift();
+        }
+      }
+
+      function fillArray(arr, source) {
+        source.forEach(function(element) {
+          arr.push(element);
+        });
+      }
+    </script>
+  </body>
+</html> 
